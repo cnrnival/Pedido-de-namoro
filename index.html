@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Namoro</title>
+    <style>
+        body {
+            background-image: url('Imagem do WhatsApp de 2024-11-01 à(s) 22.39.05_afcd5314.jpg'); /* Altere para o nome correto da sua imagem */
+            background-size: cover; /* Faz a imagem cobrir todo o fundo */
+            background-attachment: fixed; /* Mantém a imagem fixa ao rolar */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: whitesmoke;
+            margin: 0; /* Remove margens padrão */
+            padding: 20px; /* Adiciona um pouco de espaçamento */
+            min-height: 100vh; /* Garante que o corpo tenha pelo menos a altura da tela */
+            overflow-y: auto; /* Permite rolagem vertical */
+            position: relative; /* Necessário para o posicionamento absoluto do botão */
+        }
+
+        h1 {
+            color: #ff3366;
+            font-size: 2em; /* Tamanho da fonte responsivo */
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #ff3366;
+            cursor: pointer;
+        }
+
+        #nao {
+            font-size: 24px;
+            color: #333;
+            background-color: #ffcccc;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px; /* Espaçamento acima do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            position: absolute; /* Para que possamos mover o botão */
+        }
+
+        #resposta {
+            margin-top: 20px; /* Espaçamento acima da resposta */
+            display: none; /* Inicialmente escondido */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Um Pedido de Namoro Especial</h1>
+        <p>Olá amor ❤️,</p>
+        <p>Quero dizer que você ilumina minha vida como ninguém mais. Passamos meses separados, eu sei que era para ter seguido a minha vida assim como você seguiu a sua, mas infelizmente não consegui. O meu amor por você é muito grande, estou loucamente apaixonado por você. Percebi que você é a mulher da minha vida e que nenhuma outra mulher irá te substituir. Mesmo tendo percebido isso tarde demais, fiz várias coisas que não lhe agradaram, mesmo você falando para mudar e mesmo assim eu cometi os meus erros. Fiz você chorar várias e várias vezes por mim e toda vez que lembro que fiz isso com você, dói tanto o meu coração. Não soube valorizar o amor que você teve por mim, espero que não seja tão tarde.</p>
+        <p>Você aceita namorar comigo?</p>
+        <p class="heart" onclick="mostrarResposta()">❤️</p>
+        <button id="nao" onmouseover="mudarPosicao()">Não</button>
+        <p id="resposta"></p>
+    </div>
+    <script>
+        let tentativas = 0;
+        const maxTentativas = 5;
+        const mensagem = "Tipo assim o meu coração está com um grande vazio e toda vez que penso que ela está longe de mim, o meu coração aperta drasticamente. Passa minha vontade de comer, não sinto vontade de fazer só de chorar. Dá vontade de voltar no passado e consertar tudo que fiz, para consertar minhas arrogâncias e mentiras, mas nunca trair ela com outra mulher. O lado ruim é que ela não confia. Mano, tu acredita que ela jura que tive relações sexuais com a minha prima, que considero minha irmã? Tipo, não tem como eu dormir com quem é a própria irmã. Aí vem a Manu, uma menina que ela acha que eu, Vanderson Jorge, teria coragem de trocar ela por essa tal de Manu. Mano, isso é loucura! A Manu é feia e tudo de ruim. Não sou doido de trocar diamante por lixo, mas ela não entende isso.";
+
+        function mostrarResposta() {
+            document.getElementById('resposta').style.display = 'block';
+            document.getElementById('resposta').innerHTML = 'Sim! Eu aceito, meu amor. ❤️';
+            document.getElementById('nao').style.display = 'none'; // Esconde o botão "Não"
+        }
+
+        function mudarPosicao() {
+            if (tentativas < maxTentativas) {
+                tentativas++;
+                const buttonNao = document.getElementById('nao');
+                const randomX = Math.floor(Math.random() * (window.innerWidth - buttonNao.offsetWidth));
+                const randomY = Math.floor(Math.random() * (window.innerHeight - buttonNao.offsetHeight));
+                
+                // Debugging logs
+                console.log(`Tentativa: ${tentativas}, Posição X: ${randomX}, Posição Y: ${randomY}`);
+                
+                buttonNao.style.left = `${randomX}px`;
+                buttonNao.style.top = `${randomY}px`;
+            } else {
+                mostrarMensagem();
+            }
+        }
+
+        function mostrarMensagem() {
+            document.getElementById('resposta').style.display = 'block';
+            document.getElementById('resposta').innerHTML = mensagem;
+            document.getElementById('nao').style.display = 'block'; // Exibe o botão "Não" novamente
+            tentativas = 0; // Reseta o contador de tentativas
+        }
+
+        // Adiciona o evento de clique ao botão "Não"
+        document.getElementById('nao').addEventListener('click', function() {
+            mostrarMensagem();
+        });
+    </script>
+</body>
+</html>

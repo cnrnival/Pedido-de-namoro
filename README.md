@@ -26,10 +26,3 @@ Live Server (Ctrl+Alt+L) OU duplo clique
 
 Feito com ❤️ pro Dia dos Namorados 2026!
 
-
-## 🔥 **Passos:**
-```bash
-# Cria README.md com código acima
-git add README.md
-git commit -m "📄 README simplificado portfólio"
-git push

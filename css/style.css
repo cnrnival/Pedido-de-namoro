@@ -1,0 +1,14 @@
+body{
+    background-color: brown;
+}
+
+.painel{
+    margin: auto; /* centralizar horizontalmente */
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    border-radius: 15px;
+    text-align: center; /* alinhar texto ao centro */
+    padding-top: 50px; /* adicionar espaço superior para centralizar verticalmente */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
